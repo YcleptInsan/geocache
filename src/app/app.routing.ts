@@ -6,7 +6,8 @@ const appRoutes: Routes  = [
   {
     path:'',
     component: GeoFormComponent
-  }
+  },
+  
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

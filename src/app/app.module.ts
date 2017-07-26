@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { GeoFormComponent } from './geo-form/geo-form.component';
@@ -12,7 +13,8 @@ import { GeoListComponent } from './geo-list/geo-list.component';
     GeoListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

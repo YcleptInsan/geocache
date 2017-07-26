@@ -2,8 +2,25 @@
   <form>
     <div class="form-group">
       <label for="location">Location Name</label>
-      <input type=location #locationName>
+      <input type=location #addressInput>
     </div>
+    <div class="form-group">
+    <label for="city">City</label>
+    <input type=text #cityInput>
+  </div>
+  <div class="form-group">
+    <label for="state">State</label>
+    <input type=text #stateInput>
+  </div>
+    <button (click)="getGeoCache(addressInput.value, cityInput.value, stateInput.value)">Get Location</button>
+    <br>
+    <div *ngIf="LatitudeLongitudeResponse">
+      <h1>latitude: {{LatitudeLongitudeResponse.lat}}</h1>
+      <h1>longitude: {{LatitudeLongitudeResponse.lng}}</h1>
+    </div>
+    <br>
+    <hr>
+
     <div class="form-group">
       <label for="latitude">Latitude</label>
       <input type=latitude #latitude>
@@ -11,6 +28,10 @@
     <div class="form-group">
       <label for="longitude">Longitude</label>
       <input type=longitude #longitude>
+    </div>
+    <button (click)="getLatAndLong(latitude.value, longitude.value)">Get Location</button>
+    <div *ngIf="GeoCodeResponse">
+      <h1>Your GeoCode Address is {{GeoCodeResponse}}</h1>
     </div>
   </form>
 </div>

@@ -1,15 +1,20 @@
-import { Injectable } from '@angular/core';
 import { geoKey } from './api-keys';
+import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 
 @Injectable()
-export class GeocacheLocationService {
+export class GeocacheLocationService{
 
   constructor(private http: Http) { }
 
-  getLocationsApiCall(lat: string, long: string) {
-    return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=" + geoKey)
+  getLocationsApiLatLong(lat: string, lng: string) {
+    return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "&key=" + geoKey)
+  }
+
+  getLocationsApiByAddress(address: string , city: string , state: string) {
+    return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + address + "," + city + "," + state  + "&key=" + geoKey)
   }
 
 }
